@@ -47,6 +47,7 @@ namespace Crayon.Api.Sdk
             Clients = new ClientResource(this);
             CustomerTenants = new CustomerTenantResource(this);
             InvoiceProfiles = new InvoiceProfileResource(this);
+            ManagementLinkResource = new ManagementLinkResource(this);
             Me = new MeResource(this);
             OrganizationAccess = new OrganizationAccessResource(this);
             Organizations = new OrganizationResource(this);
@@ -68,6 +69,7 @@ namespace Crayon.Api.Sdk
         public ClientResource Clients { get; }
         public CustomerTenantResource CustomerTenants { get; }
         public InvoiceProfileResource InvoiceProfiles { get; }
+        public ManagementLinkResource ManagementLinkResource { get; }
         public MeResource Me { get; }
         public OrganizationAccessResource OrganizationAccess { get; }
         public OrganizationResource Organizations { get; }
