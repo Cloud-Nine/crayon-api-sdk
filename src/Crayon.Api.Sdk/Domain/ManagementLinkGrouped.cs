@@ -1,6 +1,4 @@
-﻿using Crayon.Api.Sdk.Domain;
-
-namespace Crayon.Api.Sdk.Filtering
+﻿namespace Crayon.Api.Sdk.Domain
 {
     public class ManagementLinkGrouped
     {
