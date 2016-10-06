@@ -135,8 +135,7 @@ namespace Crayon.Api.Sdk
         internal HttpResponseMessage SendRequest(HttpRequestMessage request)
         {
             request.Headers.Add("sdk-version", _assemblyVersion);
-
-            return _httpClient.SendAsync(request).Result;
+            return SynchronousExecutor.SynchronousExecute(() => _httpClient.SendAsync(request));
         }
 
         protected HttpResponseMessage SendRequest(string token, string uri, HttpMethod method, object content = null)
