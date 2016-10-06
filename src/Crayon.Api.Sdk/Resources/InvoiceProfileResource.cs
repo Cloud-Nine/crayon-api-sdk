@@ -37,5 +37,11 @@ namespace Crayon.Api.Sdk.Resources
             var uri = $"/api/v1/invoiceprofiles/{invoiceProfile.Id}";
             return _client.Put<InvoiceProfile>(token, uri, invoiceProfile);
         }
+
+        public CrayonApiClientResult Delete(string token, int id)
+        {
+            var uri = $"/api/v1/invoiceprofiles/{id}/";
+            return _client.Delete(token, uri);
+        }
     }
 }
