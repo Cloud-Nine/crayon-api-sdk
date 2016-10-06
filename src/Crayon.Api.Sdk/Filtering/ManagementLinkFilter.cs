@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Crayon.Api.Sdk.Filtering
 {
     public class ManagementLinkFilter : IHttpFilter
     {
-        public int TenantId { get; set; }
-
-        public List<string> AxDataAreaIds { get; set; }
-
         public List<int> SubscriptionIds { get; set; }
-
         public List<int> ResellerCustomerIds { get; set; } = new List<int>();
+        public int Page { get; set; } = 1;
+        public int PageSize { get; set; } = 50;
 
         public string ToQueryString()
         {
