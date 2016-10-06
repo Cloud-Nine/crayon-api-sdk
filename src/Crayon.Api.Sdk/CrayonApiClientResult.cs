@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Crayon.Api.Sdk
 {
@@ -41,7 +42,7 @@ namespace Crayon.Api.Sdk
     {
         public CrayonApiClientResult(HttpResponseMessage response)
         {
-            Content = response.Content.ReadAsStringAsync().Result;
+            Content = SynchronousExecutor.SynchronousExecute(() => response.Content.ReadAsStringAsync());
             ResponseUri = response.RequestMessage.RequestUri;
             StatusCode = response.StatusCode;
             IsSuccessStatusCode = response.IsSuccessStatusCode;

@@ -114,7 +114,7 @@ namespace Crayon.Api.Sdk
 
         protected T DeserializeResponseTo<T>(HttpResponseMessage response)
         {
-            var content = response.Content.ReadAsStringAsync().Result;
+            var content = SynchronousExecutor.SynchronousExecute(() => response.Content.ReadAsStringAsync());
 
             try
             {
