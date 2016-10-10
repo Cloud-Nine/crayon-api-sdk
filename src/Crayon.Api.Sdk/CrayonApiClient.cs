@@ -100,10 +100,10 @@ namespace Crayon.Api.Sdk
             return DeserializeResponseToResultOf<T>(response);
         }
 
-        internal CrayonApiClientResult Delete(string token, string uri)
+        internal CrayonApiClientResult<bool> Delete(string token, string uri)
         {
             var response = SendRequest(token, uri, HttpMethod.Delete);
-            return new CrayonApiClientResult(response);
+            return new CrayonApiClientResult<bool>(response.IsSuccessStatusCode, response);
         }
 
         internal CrayonApiClientResult<T> DeserializeResponseToResultOf<T>(HttpResponseMessage response)
