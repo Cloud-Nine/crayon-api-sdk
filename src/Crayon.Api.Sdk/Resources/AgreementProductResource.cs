@@ -3,6 +3,7 @@ using Crayon.Api.Sdk.Filtering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 
 namespace Crayon.Api.Sdk.Resources
 {
@@ -19,6 +20,17 @@ namespace Crayon.Api.Sdk.Resources
         {
             var uri = "/api/v1/agreementproducts/";
             return _client.Post<AgreementProductCollection>(token, uri, filter);
+        }
+
+        public CrayonApiClientResult<FileResponse> GetAsExcelFile(string token, AgreementProductFilter filter)
+        {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            var uri = "/api/v1/agreementproducts/file/xlsx";
+            return _client.GetFile(HttpMethod.Post, token, uri, filter);
         }
 
         public CrayonApiClientResult<AgreementProductCollection> GetCspSeatProducts(string token, AgreementProductFilter filter, bool includeAddOns)

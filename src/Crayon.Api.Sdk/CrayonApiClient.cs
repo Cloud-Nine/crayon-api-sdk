@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
+using Crayon.Api.Sdk.Domain;
 
 namespace Crayon.Api.Sdk
 {
@@ -104,6 +105,23 @@ namespace Crayon.Api.Sdk
         {
             var response = SendRequest(token, uri, HttpMethod.Delete);
             return new CrayonApiClientResult(response);
+        }
+
+        internal CrayonApiClientResult<FileResponse> GetFile(HttpMethod method, string token, string uri, object payload)
+        {
+            var response = SendRequest(token, uri, method, payload);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var fileContent = SynchronousExecutor.SynchronousExecute(() => response.Content.ReadAsByteArrayAsync());
+                var fileName = response.Content.Headers.ContentDisposition.FileName;
+                var fileContentType = response.Content.Headers.ContentType.MediaType;
+
+                var file = new FileResponse(fileContent, fileName, fileContentType);
+
+                return new CrayonApiClientResult<FileResponse>(file, response);
+            }
+            return new CrayonApiClientResult<FileResponse>(null, response);
         }
 
         internal CrayonApiClientResult<T> DeserializeResponseToResultOf<T>(HttpResponseMessage response)
