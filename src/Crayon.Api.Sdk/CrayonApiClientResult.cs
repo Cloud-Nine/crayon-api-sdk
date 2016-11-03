@@ -11,7 +11,10 @@ namespace Crayon.Api.Sdk
         public CrayonApiClientResult(T data, HttpResponseMessage response)
             : base(response)
         {
-            Data = data;
+            if (IsSuccessStatusCode)
+            {
+                Data = data;
+            }
         }
 
         public T Data { get; }
