@@ -17,7 +17,6 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public string MeterId { get; set; }
         public decimal Quantity { get; set; }
         public decimal IncludedQuantity { get; set; }
-        //public List<UsageRecordInfoFieldsDto> UsageRecordInfoFieldsDtos { get; set; }
         public string InstanceData { get; set; }
         public string AxDataAreaId { get; set; }
         public string OperatingUnit { get; set; }

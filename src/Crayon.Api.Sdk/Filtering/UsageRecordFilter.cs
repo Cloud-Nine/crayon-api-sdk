@@ -4,21 +4,15 @@ namespace Crayon.Api.Sdk.Filtering
 {
     public class UsageRecordFilter : IHttpFilter
     {
-        public int OrganizationId { get; set; }
+        public int? OrganizationId { get; set; }
 
-        public int BillingStatementId { get; set; }
+        public int? SubscriptionId { get; set; }
 
-        public int SubscriptionId { get; set; }
+        public int? CustomerTenantId { get; set; }
 
-        public int ProductFamilyId { get; set; }
+        public DateTimeOffset From { get; set; }
 
-        public int PublisherId { get; set; }
-
-        public int CustomerTenantId { get; set; }
-
-        public DateTimeOffset? From { get; set; }
-
-        public DateTimeOffset? To { get; set; }
+        public DateTimeOffset To { get; set; }
 
         public int Page { get; set; } = 1;
 
