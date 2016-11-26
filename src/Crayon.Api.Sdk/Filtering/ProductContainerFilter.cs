@@ -5,6 +5,7 @@ namespace Crayon.Api.Sdk.Filtering
     public class ProductContainerFilter
     {
         public int TenantId { get; set; }
+        public int OrganizationId { get; set; }
         public string Search { get; set; }
         public int Page { get; set; }
         public int PageSize { get; set; }
