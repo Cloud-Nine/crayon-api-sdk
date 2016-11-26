@@ -14,7 +14,7 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<ApiCollection<ProductContainer>> Get(string token, ProductContainerFilter filter = null)
         {
-            var uri = "/api/v1/productcontainer/".Append(filter);
+            var uri = "/api/v1/productcontainers/".Append(filter);
             return _client.Get<ApiCollection<ProductContainer>>(token, uri);
         }  
     }
