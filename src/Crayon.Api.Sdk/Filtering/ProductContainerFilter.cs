@@ -2,8 +2,14 @@
 
 namespace Crayon.Api.Sdk.Filtering
 {
-    public class ProductContainerFilter
+    public class ProductContainerFilter: IHttpFilter
     {
+        public ProductContainerFilter()
+        {
+            Page = 1;
+            PageSize = 50;
+        }
+
         public int TenantId { get; set; }
         public int OrganizationId { get; set; }
         public string Search { get; set; }
@@ -17,5 +23,9 @@ namespace Crayon.Api.Sdk.Filtering
         public string SentByUserId { get; set; }
         public ProductContainerType Type { get; set; }
         public ProductContainerCategory Category { get; set; }
+        public string ToQueryString()
+        {
+            return this.ToQuery();
+        }
     }
 }

@@ -53,6 +53,7 @@ namespace Crayon.Api.Sdk
             OrganizationAccess = new OrganizationAccessResource(this);
             Organizations = new OrganizationResource(this);
             Publishers = new PublisherResource(this);
+            ProductContainers = new ProductContainerResource(this);
             Programs = new ProgramResource(this);
             Regions = new RegionResource(this);
             Secrets = new SecretResource(this);
@@ -75,6 +76,7 @@ namespace Crayon.Api.Sdk
         public OrganizationAccessResource OrganizationAccess { get; }
         public OrganizationResource Organizations { get; }
         public PublisherResource Publishers { get; }
+        public ProductContainerResource ProductContainers { get; }
         public ProgramResource Programs { get; }
         public RegionResource Regions { get; }
         public SecretResource Secrets { get; }
