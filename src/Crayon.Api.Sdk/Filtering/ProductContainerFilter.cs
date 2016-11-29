@@ -23,6 +23,8 @@ namespace Crayon.Api.Sdk.Filtering
         public string SentByUserId { get; set; }
         public ProductContainerType Type { get; set; }
         public ProductContainerCategory Category { get; set; }
+        public bool IncludeRemoved { get; set; }
+
         public string ToQueryString()
         {
             return this.ToQuery();
