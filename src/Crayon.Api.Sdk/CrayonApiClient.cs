@@ -42,6 +42,7 @@ namespace Crayon.Api.Sdk
 
             Addresses = new AddressResource(this);
             AgreementProducts = new AgreementProductResource(this);
+            AgreementReports = new AgreementReportResource(this);
             Agreements = new AgreementResource(this);
             BillingStatements = new BillingStatementResource(this);
             BlogItems = new BlogItemResource(this);
@@ -65,6 +66,7 @@ namespace Crayon.Api.Sdk
 
         public AddressResource Addresses { get; }
         public AgreementProductResource AgreementProducts { get; }
+        public AgreementReportResource AgreementReports { get; }
         public AgreementResource Agreements { get; }
         public BillingStatementResource BillingStatements { get; }
         public BlogItemResource BlogItems { get; }
