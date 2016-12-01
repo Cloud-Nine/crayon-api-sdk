@@ -13,7 +13,7 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<ApiCollection<AgreementReport>> Get(string token, int productContainerId)
         {
-            var uri = $"/api/v1/agreementreports/{productContainerId}";
+            var uri = $"/api/v1/agreementreports/{productContainerId}/";
             return _client.Get<ApiCollection<AgreementReport>>(token, uri);
         }
 
