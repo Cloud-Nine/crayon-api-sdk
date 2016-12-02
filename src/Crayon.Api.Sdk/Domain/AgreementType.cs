@@ -9,7 +9,8 @@
         SamAgreement = 4,
         ConsultingAgreement = 5,
         OtherAgreement = 6,
-        CloudAgreement = 7,
-        ReportingAgreement = 8
+        Reserved = 7,
+        CloudAgreement = 8,
+        ReportingAgreement = 9
     }
 }
