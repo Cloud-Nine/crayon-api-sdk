@@ -10,7 +10,6 @@ namespace Crayon.Api.Sdk.Filtering
             PageSize = 50;
         }
 
-        public int TenantId { get; set; }
         public int OrganizationId { get; set; }
         public string Search { get; set; }
         public int Page { get; set; }

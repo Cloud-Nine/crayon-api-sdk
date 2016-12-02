@@ -14,16 +14,6 @@ namespace Crayon.Api.Sdk.Domain
         public string UsageCountryCode { get; set; } = string.Empty;
 
         /// <summary>
-        /// Price in Pact
-        /// </summary>
-        public Price PurchaseUnitPrice { get; set; }
-
-        /// <summary>
-        /// Price without margin and discount in agreement currency
-        /// </summary>
-        public Price UnitPrice { get; set; }
-
-        /// <summary>
         /// Price with margin and discount
         /// </summary>
         public Price SalesUnitPrice { get; set; }

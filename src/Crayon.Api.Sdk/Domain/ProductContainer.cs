@@ -24,9 +24,7 @@ namespace Crayon.Api.Sdk.Domain
 
         public UserProfile ContactUser { get; set; }
 
-        public OrganizationReference Organization { get; set; }
-
-        public ObjectReference Tenant { get; set; }
+        public ObjectReference Organization { get; set; }
 
         public ObjectReference Publisher { get; set; }
 
@@ -43,8 +41,6 @@ namespace Crayon.Api.Sdk.Domain
         public ProductContainerCategory Category { get; set; }
 
         public DateTimeOffset QuoteValidToDate { get; set; }
-
-        public List<Price> TotalPurchasePrice { get; set; } = new List<Price>();
 
         public List<Price> TotalSalesPrice { get; set; } = new List<Price>();
 
