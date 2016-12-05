@@ -24,7 +24,7 @@ namespace Crayon.Api.Sdk.Resources
             return _client.Get<ProductContainer>(token, uri);
         }
 
-        public CrayonApiClientResult<ProductContainer> Put(string token, ProductContainer productContainer)
+        public CrayonApiClientResult<ProductContainer> Update(string token, ProductContainer productContainer)
         {
             var uri = $"/api/v1/productcontainers/{productContainer.Id}";
             return _client.Put<ProductContainer>(token, uri, productContainer);
