@@ -8,7 +8,7 @@ namespace Crayon.Api.Sdk.Filtering
 
         public int? SubscriptionId { get; set; }
 
-        public int? CustomerTenantId { get; set; }
+        public int? CloudAccountId { get; set; }
 
         public DateTimeOffset From { get; set; }
 
