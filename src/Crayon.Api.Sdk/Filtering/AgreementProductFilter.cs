@@ -21,6 +21,7 @@ namespace Crayon.Api.Sdk.Filtering
         public string Search { get; set; }
         public int PriceListId { get; set; }
         public int OrganizationId { get; set; }
+        public int AgreementId { get; set; }
         public List<int> AgreementIds { get; set; }
         public DateTimeOffset? SearchDate { get; set; }
         public AgreementProductsSubFilter Include { get; set; }
