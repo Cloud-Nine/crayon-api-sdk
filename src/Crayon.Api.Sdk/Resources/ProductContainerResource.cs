@@ -30,10 +30,16 @@ namespace Crayon.Api.Sdk.Resources
             return _client.Put<ProductContainer>(token, uri, productContainer);
         }
 
-        public CrayonApiClientResult<ProductContainer> CreateReport(string token, UserProfile userProfile, int organizationId, int programId, int year, int month, bool copyLast = false)
+        public CrayonApiClientResult Delete(string token, int id)
         {
-            var uri = $"/api/v1/productcontainers/createreport/?organizationId={organizationId}&programId={programId}&year={year}&month={month}&copyLast={copyLast}";
-            return _client.Put<ProductContainer>(token, uri, userProfile);
+            var uri = $"/api/v1/productcontainers/{id}";
+            return _client.Delete(token, uri);
+        }
+
+        public CrayonApiClientResult<ProductContainer> CreateReport(string token, int organizationId, int programId, int year, int month, bool copyLast = false)
+        {
+            var uri = $"/api/v1/productcontainers/reportbymonth/?organizationId={organizationId}&programId={programId}&year={year}&month={month}&copyLast={copyLast}";
+            return _client.Post<ProductContainer>(token, uri, null);
         }
     }
 }
