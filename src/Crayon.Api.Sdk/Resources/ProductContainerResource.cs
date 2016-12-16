@@ -24,10 +24,22 @@ namespace Crayon.Api.Sdk.Resources
             return _client.Get<ProductContainer>(token, uri);
         }
 
-        public CrayonApiClientResult<ProductContainer> Put(string token, ProductContainer productContainer)
+        public CrayonApiClientResult<ProductContainer> Update(string token, ProductContainer productContainer)
         {
             var uri = $"/api/v1/productcontainers/{productContainer.Id}";
             return _client.Put<ProductContainer>(token, uri, productContainer);
+        }
+
+        public CrayonApiClientResult Delete(string token, int id)
+        {
+            var uri = $"/api/v1/productcontainers/{id}";
+            return _client.Delete(token, uri);
+        }
+
+        public CrayonApiClientResult<ProductContainer> CreateReport(string token, int organizationId, int programId, int year, int month, bool copyLast = false)
+        {
+            var uri = $"/api/v1/productcontainers/reportbymonth/?organizationId={organizationId}&programId={programId}&year={year}&month={month}&copyLast={copyLast}";
+            return _client.Post<ProductContainer>(token, uri, null);
         }
     }
 }
