@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Crayon.Api.Sdk.Domain
 {
@@ -43,6 +43,8 @@ namespace Crayon.Api.Sdk.Domain
         public DateTimeOffset QuoteValidToDate { get; set; }
 
         public List<Price> TotalSalesPrice { get; set; } = new List<Price>();
+
+        public List<ProductContainerIssue> Issues { get; set; } = new List<ProductContainerIssue>();
 
         public ProductContainerCommentUser SubmittedBy => GetCreatedLog()?.User;
 

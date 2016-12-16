@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace Crayon.Api.Sdk.Domain
 {
     public class ProductRow
@@ -31,5 +32,7 @@ namespace Crayon.Api.Sdk.Domain
         public ObjectReference ProductVariant { get; set; }
 
         public ObjectReference InvoiceProfile { get; set; }
+
+        public List<ProductContainerIssue> Issues { get; set; } = new List<ProductContainerIssue>();
     }
 }
