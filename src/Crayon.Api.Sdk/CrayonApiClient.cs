@@ -1,11 +1,14 @@
-﻿using Crayon.Api.Sdk.Resources;
+﻿using Crayon.Api.Sdk.Domain;
+using Crayon.Api.Sdk.Resources;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
-using Crayon.Api.Sdk.Domain;
+using System.Threading.Tasks;
 
 namespace Crayon.Api.Sdk
 {
@@ -157,7 +160,22 @@ namespace Crayon.Api.Sdk
         internal HttpResponseMessage SendRequest(HttpRequestMessage request)
         {
             request.Headers.Add("sdk-version", _assemblyVersion);
-            return SynchronousExecutor.SynchronousExecute(() => _httpClient.SendAsync(request));
+            return SynchronousExecutor.SynchronousExecute(() => {
+                try
+                {
+                    return _httpClient.SendAsync(request);
+                }
+                catch (HttpRequestException ex)
+                {
+                    var error = ToError(ex.InnerException ?? ex, "Unable to connect to API");
+                    var serializedContent = JsonConvert.SerializeObject(error, _jsonSerializerSettings);
+                    var jsonContent = new StringContent(serializedContent, Encoding.UTF8, "application/json");
+
+                    return Task.FromResult( new HttpResponseMessage(HttpStatusCode.ServiceUnavailable) {
+                        Content = jsonContent
+                    });
+                }
+            });
         }
 
         protected HttpResponseMessage SendRequest(string token, string uri, HttpMethod method, object content = null)
@@ -174,6 +192,23 @@ namespace Crayon.Api.Sdk
             }
 
             return SendRequest(request);
+        }
+
+        private static Error ToError(Exception e, string message)
+        {
+            var error = new Error {
+                Message = e.Message,
+                ObjectErrors = new List<InternalError> {
+                    new InternalError {
+                        Message = e.InnerException?.Message ?? string.Empty
+                    },
+                    new InternalError {
+                        Message = message
+                    }
+                }
+            };
+
+            return error;
         }
     }
 }
