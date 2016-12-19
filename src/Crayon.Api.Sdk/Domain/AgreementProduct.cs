@@ -19,5 +19,7 @@
         public int MonthMultiplier { get; set; }
 
         public PriceCalculationType PriceCalculationType { get; set; }
+
+        public AgreementType AgreementType { get; set; }
     }
 }
