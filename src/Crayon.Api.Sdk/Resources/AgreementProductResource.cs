@@ -18,8 +18,8 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<AgreementProductCollection> Get(string token, AgreementProductFilter filter = null)
         {
-            var uri = "/api/v1/agreementproducts/";
-            return _client.Post<AgreementProductCollection>(token, uri, filter);
+            var uri = "/api/v1/agreementproducts/".Append(filter);
+            return _client.Get<AgreementProductCollection>(token, uri);
         }
 
         public CrayonApiClientResult<FileResponse> GetAsExcelFile(string token, AgreementProductFilter filter)

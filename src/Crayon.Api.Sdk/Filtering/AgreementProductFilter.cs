@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Crayon.Api.Sdk.Filtering
 {
-    public class AgreementProductFilter
+    public class AgreementProductFilter : IHttpFilter
     {
         public AgreementProductFilter()
         {
@@ -26,5 +26,10 @@ namespace Crayon.Api.Sdk.Filtering
         public DateTimeOffset? SearchDate { get; set; }
         public AgreementProductsSubFilter Include { get; set; }
         public AgreementProductsSubFilter Exclude { get; set; }
+
+        public string ToQueryString()
+        {
+            return this.ToQuery();
+        }
     }
 }
