@@ -191,7 +191,13 @@ namespace Crayon.Api.Sdk
                 request.Content = jsonContent;
             }
 
+            request = PreSend(request);
             return SendRequest(request);
+        }
+
+        protected virtual HttpRequestMessage PreSend(HttpRequestMessage requestMessage)
+        {
+            return requestMessage;
         }
 
         private static Error ToError(Exception e, string message)
