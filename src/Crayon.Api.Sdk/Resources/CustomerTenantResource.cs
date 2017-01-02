@@ -21,6 +21,11 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<CustomerTenant> GetById(string token, int id)
         {
+            if (id <= 0)
+            {
+                return CrayonApiClientResult.NotFound<CustomerTenant>();
+            }
+
             var uri = $"api/v1/customertenants/{id}/";
             return _client.Get<CustomerTenant>(token, uri);
         }

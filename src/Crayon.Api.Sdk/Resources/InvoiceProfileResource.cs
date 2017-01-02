@@ -20,6 +20,11 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<InvoiceProfile> GetById(string token, int id)
         {
+            if (id <= 0)
+            {
+                return CrayonApiClientResult.NotFound<InvoiceProfile>();
+            }
+
             var uri = $"/api/v1/invoiceprofiles/{id}";
             return _client.Get<InvoiceProfile>(token, uri);
         }

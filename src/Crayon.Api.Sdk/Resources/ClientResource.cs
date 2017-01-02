@@ -20,6 +20,11 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<Client> GetByClientId(string token, string clientId)
         {
+            if (string.IsNullOrEmpty(clientId))
+            {
+                return CrayonApiClientResult.NotFound<Client>();
+            }
+
             var uri = $"/api/v1/clients/{clientId}/";
             return _client.Get<Client>(token, uri);
         }

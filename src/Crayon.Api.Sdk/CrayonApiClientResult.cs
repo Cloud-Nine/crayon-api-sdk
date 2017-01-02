@@ -44,8 +44,20 @@ namespace Crayon.Api.Sdk
     {
         public CrayonApiClientResult(HttpResponseMessage response)
         {
-            Content = SynchronousExecutor.SynchronousExecute(() => response.Content.ReadAsStringAsync());
-            ResponseUri = response.RequestMessage.RequestUri;
+            if (response.Content != null)
+            {
+                Content = SynchronousExecutor.SynchronousExecute(() => response.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                Content = string.Empty;
+            }
+
+            if (response.RequestMessage != null)
+            {
+                ResponseUri = response.RequestMessage.RequestUri;
+            }
+
             StatusCode = response.StatusCode;
             IsSuccessStatusCode = response.IsSuccessStatusCode;
 
@@ -63,6 +75,14 @@ namespace Crayon.Api.Sdk
 
         private Error HandleFailureStatusCode(HttpResponseMessage response)
         {
+            if (Content == null)
+            {
+                return new Error {
+                    Message = response.StatusCode == HttpStatusCode.NotFound ? "Not found" : string.Empty,
+                    ErrorCode = response.StatusCode.ToString()
+                };
+            }
+
             try
             {
                 return JsonConvert.DeserializeObject<Error>(Content);
@@ -74,6 +94,11 @@ namespace Crayon.Api.Sdk
                     ErrorCode = response.StatusCode.ToString()
                 };
             }
+        }
+
+        public static CrayonApiClientResult<T> NotFound<T>()
+        {
+            return new CrayonApiClientResult<T>(default(T), new HttpResponseMessage(HttpStatusCode.NotFound));
         }
     }
 }

@@ -21,6 +21,11 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<SubscriptionDetailed> GetById(string token, int id)
         {
+            if (id <= 0)
+            {
+                return CrayonApiClientResult.NotFound<SubscriptionDetailed>();
+            }
+
             string uri = $"/api/v1/subscriptions/{id}";
             return _client.Get<SubscriptionDetailed>(token, uri);
         }

@@ -20,6 +20,11 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<ProductContainer> GetById(string token, int id)
         {
+            if (id <= 0)
+            {
+                return CrayonApiClientResult.NotFound<ProductContainer>();
+            }
+
             var uri = $"/api/v1/productcontainers/{id}";
             return _client.Get<ProductContainer>(token, uri);
         }
