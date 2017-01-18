@@ -23,6 +23,8 @@ namespace Crayon.Api.Sdk.Domain.Csp
 
         public SubscriptionStatus Status { get; set; }
 
+        public ProvisionType ProvisionType { get; set; }
+
         public int AvailableAddonsCount { get; set; }
 
         public List<SubscriptionAddOn> Subscriptions { get; set; }
