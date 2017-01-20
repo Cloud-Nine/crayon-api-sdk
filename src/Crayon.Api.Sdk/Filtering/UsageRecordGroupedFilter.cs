@@ -15,6 +15,8 @@ namespace Crayon.Api.Sdk.Filtering
         public int Page { get; set; } = 1;
         public int PageSize { get; set; } = 50;
         public string Search { get; set; }
+        public string MeterCategory { get; set; }
+        public string MeterSubCategory { get; set; }
 
         public string ToQueryString()
         {
