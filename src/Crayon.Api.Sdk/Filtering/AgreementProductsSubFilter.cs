@@ -2,7 +2,7 @@
 
 namespace Crayon.Api.Sdk.Filtering
 {
-    public class AgreementProductsSubFilter
+    public class AgreementProductsSubFilter : IHttpSubFilter
     {
         public List<int> PublisherIds { get; set; }
         public List<string> PublisherNames { get; set; }
@@ -21,5 +21,10 @@ namespace Crayon.Api.Sdk.Filtering
         public List<string> VersionNames { get; set; }
         public List<string> RegionNames { get; set; }
         public List<string> ProductCategoryNames { get; set; }
+
+        public string ToQueryString(string parentName)
+        {
+            return this.ToQuery(parentName);
+        }
     }
 }
