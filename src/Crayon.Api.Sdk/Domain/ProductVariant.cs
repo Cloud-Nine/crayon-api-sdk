@@ -24,5 +24,7 @@ namespace Crayon.Api.Sdk.Domain
         public string PurchaseUnit { get; set; }
         public DateTimeOffset AddDate { get; set; }
         public DateTimeOffset DeleteDate { get; set; }
+        public string ProductCategory { get; set; }
+        public string Region { get; set; }
     }
 }
