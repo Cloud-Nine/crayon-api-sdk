@@ -1,4 +1,5 @@
 ﻿using Crayon.Api.Sdk.Domain.Csp;
+using Crayon.Api.Sdk.Domain.MasterData;
 
 namespace Crayon.Api.Sdk.Filtering
 {
@@ -15,6 +16,7 @@ namespace Crayon.Api.Sdk.Filtering
         public int OrganizationId { get; set; }
         public int CustomerTenantId { get; set; }
         public string PublisherCustomerId { get; set; }
+        public int PublisherId { get; set; }
         public bool Refresh { get; set; }
         public SubscriptionStatus Statuses { get; set; }
         public int Page { get; set; }
