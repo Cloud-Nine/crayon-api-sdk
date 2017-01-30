@@ -6,9 +6,11 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public int Id { get; set; }
 
         public int PublisherId { get; set; }
-        
+
         //public int ResellerCustomerId { get; set; }
         //public string EntitlementId { get; set; }
+
+        public string PublisherName { get; set; }
 
         public DateTime UsageStartTime { get; set; }
 
