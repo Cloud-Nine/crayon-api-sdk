@@ -6,6 +6,8 @@ namespace Crayon.Api.Sdk.Domain.Csp
     {
         public string PartNumber { get; set; }
 
+        public string MeterId { get; set; }
+
         public string MeterName { get; set; }
 
         public string MeterCategory { get; set; }

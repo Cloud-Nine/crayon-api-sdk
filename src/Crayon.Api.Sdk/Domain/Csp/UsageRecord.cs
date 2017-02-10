@@ -6,19 +6,16 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public int Id { get; set; }
 
         public int PublisherId { get; set; }
-
-        //public int ResellerCustomerId { get; set; }
-        //public string EntitlementId { get; set; }
-
+        
         public string PublisherName { get; set; }
 
         public DateTime UsageStartTime { get; set; }
 
         public DateTime UsageEndTime { get; set; }
-
-        //public string ObjectType { get; set; }
-
+        
         public string MeterName { get; set; }
+
+        public string MeterId { get; set; }
 
         public string MeterCategory { get; set; }
 
@@ -31,13 +28,9 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public decimal IncludedQuantity { get; set; }
 
         public string InstanceData { get; set; }
-
-        //public string AxDataAreaId { get; set; }
-
+        
         public string OperatingUnit { get; set; }
-
-        //public string PublisherCustomerId { get; set; }
-
+        
         public DateTime ReportStartDate { get; set; }
 
         public DateTime ReportEndDate { get; set; }
@@ -45,10 +38,6 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public int? AgreementId { get; set; }
 
         public int? SubscriptionId { get; set; }
-
-        //public decimal? PurchaseUnitPrice { get; set; }
-
-        //public string PurchaseUnitPriceCurrencyCode { get; set; }
 
         public decimal? SalesUnitPrice { get; set; }
 
