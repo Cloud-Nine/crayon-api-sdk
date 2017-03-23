@@ -39,6 +39,16 @@ namespace Crayon.Api.Sdk.Domain.Csp
 
         public int? SubscriptionId { get; set; }
 
+        public string SubscriptionName { get; set; }
+
+        public string TenantName { get; set; }
+
+        public string TenantReference { get; set; }
+
+        public string OrganizationName { get; set; }
+
+        public int? TenantId { get; set; }
+
         public decimal? SalesUnitPrice { get; set; }
 
         public string SalesUnitPriceCurrencyCode { get; set; }
