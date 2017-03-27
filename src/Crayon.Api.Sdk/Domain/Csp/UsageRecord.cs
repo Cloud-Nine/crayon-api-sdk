@@ -47,6 +47,8 @@ namespace Crayon.Api.Sdk.Domain.Csp
 
         public string TenantReference { get; set; }
 
+        public string CloudAccountDomainPrefix { get; set; }
+
         public string OrganizationName { get; set; }
 
         public int? TenantId { get; set; }
