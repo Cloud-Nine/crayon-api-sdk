@@ -4,7 +4,13 @@ namespace Crayon.Api.Sdk.Domain.Csp
 {
     public class UsageRecordGrouped
     {
+        public int TenantId { get; set; }
+
+        public string OrganizationName { get; set; }
+
         public string PartNumber { get; set; }
+
+        public int ExternalProductId { get; set; }
 
         public string MeterId { get; set; }
 
