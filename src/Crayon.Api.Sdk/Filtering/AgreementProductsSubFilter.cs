@@ -4,6 +4,7 @@ namespace Crayon.Api.Sdk.Filtering
 {
     public class AgreementProductsSubFilter : IHttpSubFilter
     {
+        public List<string> PartNumbers { get; set; }
         public List<int> PublisherIds { get; set; }
         public List<string> PublisherNames { get; set; }
         public List<string> PoolNames { get; set; }
