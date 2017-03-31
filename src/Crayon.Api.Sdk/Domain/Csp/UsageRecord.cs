@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Crayon.Api.Sdk.Domain.Csp
 {
     public class UsageRecord
@@ -6,13 +8,13 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public int Id { get; set; }
 
         public int PublisherId { get; set; }
-        
+
         public string PublisherName { get; set; }
 
         public DateTime UsageStartTime { get; set; }
 
         public DateTime UsageEndTime { get; set; }
-        
+
         public string MeterName { get; set; }
 
         public string MeterId { get; set; }
@@ -28,9 +30,9 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public decimal IncludedQuantity { get; set; }
 
         public string InstanceData { get; set; }
-        
+
         public string OperatingUnit { get; set; }
-        
+
         public DateTime ReportStartDate { get; set; }
 
         public DateTime ReportEndDate { get; set; }
@@ -68,5 +70,7 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public DateTime Created { get; set; }
 
         //public decimal Margin { get; set; }
+
+        public List<UsageRecordTag> Tags { get; set; }
     }
 }
