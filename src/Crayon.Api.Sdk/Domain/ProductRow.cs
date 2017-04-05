@@ -36,5 +36,7 @@ namespace Crayon.Api.Sdk.Domain
         public Grouping Grouping { get; set; }
 
         public List<ProductContainerIssue> Issues { get; set; } = new List<ProductContainerIssue>();
+
+        public string OfferingType { get; set; }
     }
 }
