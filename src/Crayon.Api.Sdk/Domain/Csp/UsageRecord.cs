@@ -72,5 +72,7 @@ namespace Crayon.Api.Sdk.Domain.Csp
         //public decimal Margin { get; set; }
 
         public List<UsageRecordTag> Tags { get; set; }
+
+        public UsageRecordInstanceData ParsedInstanceData { get; set; }
     }
 }
