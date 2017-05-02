@@ -45,6 +45,8 @@ namespace Crayon.Api.Sdk.Domain.Csp
 
         public string PublisherSubscriptionId { get; set; }
 
+        public string PublisherCustomerId { get; set; }
+
         public string TenantName { get; set; }
 
         public string TenantReference { get; set; }
