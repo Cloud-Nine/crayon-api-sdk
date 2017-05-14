@@ -27,6 +27,10 @@ namespace Crayon.Api.Sdk.Filtering
         public AgreementProductsSubFilter Include { get; set; }
         public AgreementProductsSubFilter Exclude { get; set; }
 
+        public string SortKey { get; set; }
+
+        public SortOrder SortOrder { get; set; }
+
         public string ToQueryString()
         {
             return this.ToQuery();
