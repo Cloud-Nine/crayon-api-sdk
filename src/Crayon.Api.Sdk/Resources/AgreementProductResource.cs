@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using Crayon.Api.Sdk.Domain.Csp;
 
 namespace Crayon.Api.Sdk.Resources
 {
@@ -33,6 +34,22 @@ namespace Crayon.Api.Sdk.Resources
             return _client.GetFile(HttpMethod.Post, token, uri, filter);
         }
 
+        public CrayonApiClientResult<IEnumerable<BillingCycle>> GetSupportedBillingCycles(string token, string resellerCustomerId, string partNumber)
+        {
+            if (partNumber == null)
+            {
+                throw new ArgumentNullException(nameof(partNumber));
+            }
+
+            if (resellerCustomerId == null)
+            {
+                throw new ArgumentNullException(nameof(resellerCustomerId));
+            }
+
+            var uri = $"/api/v1/agreementproducts/{partNumber}/supportedbillingcycles?resellerCustomerId={resellerCustomerId}";
+            return _client.Get<IEnumerable<BillingCycle>>(token, uri);
+        }
+
         public CrayonApiClientResult<AgreementProductCollection> GetCspSeatProducts(string token, AgreementProductFilter filter, bool includeAddOns)
         {
             filter.Include = filter.Include ?? new AgreementProductsSubFilter();
@@ -40,7 +57,8 @@ namespace Crayon.Api.Sdk.Resources
             filter.Include.ProgramNames = filter.Include.ProgramNames ?? new List<string>();
             filter.Include.ProductTypeNames = filter.Include.ProductTypeNames ?? new List<string>();
 
-            Action<List<string>, string> includeValue = (list, s) => {
+            Action<List<string>, string> includeValue = (list, s) =>
+            {
                 string obj = list.FirstOrDefault(p => p.Equals(s, StringComparison.CurrentCultureIgnoreCase));
                 if (obj == null)
                 {
