@@ -36,14 +36,9 @@ namespace Crayon.Api.Sdk.Resources
 
         public CrayonApiClientResult<IEnumerable<BillingCycle>> GetSupportedBillingCycles(string token, int resellerCustomerId, string partNumber)
         {
-            if (partNumber == null)
+            if (string.IsNullOrWhiteSpace(partNumber))
             {
-                throw new ArgumentNullException(nameof(partNumber));
-            }
-
-            if (resellerCustomerId == null)
-            {
-                throw new ArgumentNullException(nameof(resellerCustomerId));
+                throw new ArgumentException($"{nameof(partNumber)} can not be null or empty.");
             }
 
             var uri = $"/api/v1/agreementproducts/{partNumber}/supportedbillingcycles?resellerCustomerId={resellerCustomerId}";
