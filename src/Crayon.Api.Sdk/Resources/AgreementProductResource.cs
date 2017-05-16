@@ -34,7 +34,7 @@ namespace Crayon.Api.Sdk.Resources
             return _client.GetFile(HttpMethod.Post, token, uri, filter);
         }
 
-        public CrayonApiClientResult<IEnumerable<BillingCycle>> GetSupportedBillingCycles(string token, string resellerCustomerId, string partNumber)
+        public CrayonApiClientResult<IEnumerable<BillingCycle>> GetSupportedBillingCycles(string token, int resellerCustomerId, string partNumber)
         {
             if (partNumber == null)
             {
