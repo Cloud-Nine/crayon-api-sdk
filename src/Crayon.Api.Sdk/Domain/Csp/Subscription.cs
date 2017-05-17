@@ -32,5 +32,7 @@ namespace Crayon.Api.Sdk.Domain.Csp
         public string OrderId { get; set; }
 
         public DateTimeOffset CreationDate { get; set; }
+
+        public BillingCycle BillingCycle { get; set; }
     }
 }
